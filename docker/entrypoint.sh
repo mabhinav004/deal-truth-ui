@@ -190,7 +190,7 @@ else
     location /api/ {
       default_type application/json;
       add_header Cache-Control "no-store";
-      return 503 '{"error":{"code":"API_UNAVAILABLE","message":"Set API_UPSTREAM on Render to your Deal Truth API origin, e.g. https://deal-truth-api.onrender.com.","retryable":false}}';
+      return 503 '{"error":{"code":"API_UNAVAILABLE","message":"Set API_UPSTREAM on Render to your Sach.AI API origin, e.g. https://deal-truth-api.onrender.com.","retryable":false}}';
     }
 EOF
   )

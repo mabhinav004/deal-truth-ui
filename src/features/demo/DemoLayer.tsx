@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { env } from "@/config/env";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { toggleTheme } from "@/lib/theme";
 import { demoCloseCrm, demoOpenCrm, demoPlaySeg, demoSetView } from "./demoEvents";
 
@@ -33,7 +34,7 @@ type Cmd = {
 };
 
 function highlightBrand(text: string) {
-  const brand = "Deal Truth";
+  const brand = PRODUCT_NAME;
   const at = text.indexOf(brand);
   if (at < 0) return text;
   return (
@@ -79,7 +80,7 @@ export function DemoLayer() {
 
   const beats: Beat[] = [
       {
-        cap: "Deal Truth does this without a $1,400 seat.",
+        cap: `${PRODUCT_NAME} does this without a $1,400 seat.`,
         sub: "Six calls, analysed. Every claim in here is backed by audio you can play.",
         go: () => navigate("/"),
         spot: ".rows",
@@ -155,7 +156,7 @@ export function DemoLayer() {
         spot: ".matrix",
       },
       {
-        cap: "Deal Truth. Open source. Runs on PyAI.",
+        cap: `${PRODUCT_NAME}. Open source. Runs on PyAI.`,
         sub: "Notes with receipts, a gate that blocks, and a deal timeline made of things people actually said. git clone and it runs.",
         go: () => navigate("/demo"),
         spot: null,
@@ -424,7 +425,7 @@ export function DemoLayer() {
             has a <span className="mark-saffron">receipt</span>.
           </div>
           <div className="cold-sub">
-            Deal Truth turns a sales call into notes you can defend line by line. Click any finding and hear the customer
+            {PRODUCT_NAME} turns a sales call into notes you can defend line by line. Click any finding and hear the customer
             say it — or watch the evidence gate refuse to ship it.
           </div>
           <div className="cold-cta">

@@ -7,6 +7,7 @@ import { PageSkeleton } from "@/components/ui/Skeleton";
 import { ProofPips, callPips } from "@/features/calls/DealSignalStrip";
 import { insightCountTotal } from "@/api/adapters";
 import { useCalls, useCallsOverview, useRecommendations, useSampleCall, useUploadFlow } from "@/hooks/useCallApi";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { formatDate, formatDuration } from "@/lib/utils";
 import { env } from "@/config/env";
 import { isReportReadyStatus } from "@/api/contracts";
@@ -26,7 +27,7 @@ export function DashboardPage() {
     return (
       <ErrorState
         title="Could not load calls"
-        description="The Deal Truth API did not return the call list. Check VITE_API_BASE_URL and that the API is reachable."
+        description={`The ${PRODUCT_NAME} API did not return the call list. Check VITE_API_BASE_URL and that the API is reachable.`}
         onRetry={() => void calls.refetch()}
       />
     );
@@ -64,7 +65,7 @@ export function DashboardPage() {
       <div className="between" style={{ marginBottom: 18, flexWrap: "wrap", gap: 14 }}>
         <div>
           <div className="eyebrow" style={{ marginBottom: 6 }}>
-            Deal Truth · workspace
+            {PRODUCT_NAME} · workspace
           </div>
           <h1 className="hero-title" style={{ maxWidth: "17ch" }}>
             The call intelligence tool that <span className="mark-saffron">shows its receipts</span>.

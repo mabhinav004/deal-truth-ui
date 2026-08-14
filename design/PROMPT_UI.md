@@ -6,7 +6,7 @@
 
 ## Context
 
-You are rebuilding the Deal Truth web app to match a finished HTML prototype.
+You are rebuilding the Sach.AI web app to match a finished HTML prototype.
 
 - `design/prototype.html` — the visual source of truth. Open it. Everything you build must match it.
 - `design/UI_DESIGN_SPEC.md` — tokens, component specs, screen-by-screen layouts, data bindings to real API fields.
@@ -136,7 +136,7 @@ npm run parity 2>&1 | tail -30
 
 ---
 
-## Task 3 — Rename OpenGong → Deal Truth
+## Task 3 — Rename OpenGong → Sach.AI
 
 **Goal:** one product name. Judges will notice two.
 

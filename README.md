@@ -1,6 +1,6 @@
 <div align="center">
 
-# Deal Truth
+# Sach.AI
 
 **Turn conversations into deal intelligence.**
 
@@ -19,7 +19,7 @@ Upload a sales call. Get notes with receipts — every claim tied back to the ex
 
 ---
 
-Deal Truth is the standalone web client for evidence-first conversation intelligence. It is not a dashboard of AI summaries. Every signal, objection, and follow-up sentence can jump to the transcript and play the audio.
+Sach.AI is the standalone web client for evidence-first conversation intelligence. It is not a dashboard of AI summaries. Every signal, objection, and follow-up sentence can jump to the transcript and play the audio.
 
 > **No proof in the transcript, no claim in the report.**
 
@@ -29,9 +29,9 @@ Upload  →  Transcribe  →  Analyze  →  Evidence-linked report
 
 ## Why it exists
 
-Most call tools tell you *what happened*. Deal Truth tells you **what you can prove**.
+Most call tools tell you *what happened*. Sach.AI tells you **what you can prove**.
 
-| Typical call intelligence | Deal Truth |
+| Typical call intelligence | Sach.AI |
 | --- | --- |
 | A generated paragraph | A verdict with clickable receipts |
 | “The customer likes the product” | The exact quote, speaker, and timestamp |
@@ -87,7 +87,7 @@ Open [http://localhost:5173](http://localhost:5173).
 
 With an empty `VITE_API_BASE_URL`, the app starts **Mock Service Worker** automatically. You get a full workspace — including the Example Inc. sample call — without a backend.
 
-To talk to a live Deal Truth API:
+To talk to a live Sach.AI API:
 
 ```bash
 # .env
@@ -112,7 +112,7 @@ Copy [`.env.example`](.env.example). Values are read at build time (`VITE_*`).
 
 | Variable | Purpose |
 | --- | --- |
-| `VITE_API_BASE_URL` | Deal Truth API origin. Empty → mocks unless you force them off. |
+| `VITE_API_BASE_URL` | Sach.AI API origin. Empty → mocks unless you force them off. |
 | `VITE_USE_MOCKS` | `true` / `false`. Defaults to **on** when no API URL is set. |
 | `VITE_DEMO_CALL_ID` | Call opened by `/demo` (default `call-demo`). |
 | `VITE_API_KEY` | Optional. Sent as `X-API-Key`. Never commit a real key. |
@@ -141,7 +141,7 @@ Secrets belong in `.env` (gitignored) or your host’s secret store — not in s
 
 ```mermaid
 flowchart LR
-  subgraph UI["Deal Truth"]
+  subgraph UI["Sach.AI"]
     Pages["Pages"]
     Features["Feature panels"]
     API["Typed API layer"]
@@ -150,7 +150,7 @@ flowchart LR
   subgraph Runtime["Runtime"]
     RQ["TanStack Query"]
     MSW["MSW mocks"]
-    DT["Deal Truth API"]
+    DT["Sach.AI API"]
   end
 
   Pages --> Features
@@ -240,4 +240,4 @@ The visual language is Tiranga: saffron for attention, green for proven, chakra 
 
 ## License
 
-[MIT](LICENSE) © 2026 Deal Truth contributors
+[MIT](LICENSE) © 2026 Sach.AI contributors

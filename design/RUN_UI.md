@@ -1,6 +1,6 @@
-# Start here — Deal Truth UI
+# Start here — Sach.AI UI
 
-You're rebuilding the Deal Truth web app to match a finished prototype. Everything you need is in this folder. **Read this once (3 min), then start.**
+You're rebuilding the Sach.AI web app to match a finished prototype. Everything you need is in this folder. **Read this once (3 min), then start.**
 
 ---
 

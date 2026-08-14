@@ -13,7 +13,7 @@ export function validateSlackWebhook(url: string): string | null {
 }
 
 /**
- * Stores the webhook on the Deal Truth API. The URL is never logged or returned.
+ * Stores the webhook on the Sach.AI API. The URL is never logged or returned.
  */
 export async function saveSlackWebhook(url: string): Promise<{ status: "ok" } | { status: "demo" }> {
   const error = validateSlackWebhook(url);

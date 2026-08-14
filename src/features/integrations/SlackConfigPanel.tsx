@@ -2,6 +2,7 @@ import type { SlackAlert } from "@/api/integrations/contracts";
 import { Field, Input, Select, Textarea } from "@/components/ui/Input";
 import { SlackPreview } from "./SlackPreview";
 import { SLACK_TYPE_OPTIONS } from "./buildOperations";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
 const SEVERITIES: { id: SlackAlert["severity"]; label: string; swatch: string }[] = [
@@ -22,7 +23,7 @@ export function SlackConfigPanel({
     <div className="space-y-5">
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-violet-700">Slack alerts</p>
-        <h3 className="mt-1 text-base font-semibold text-ink-900">Choose when DealTruth should notify your team.</h3>
+        <h3 className="mt-1 text-base font-semibold text-ink-900">Choose when {PRODUCT_NAME} should notify your team.</h3>
         <p className="mt-1 text-sm text-ink-500">
           Notifications are sent by the integration service with the HubSpot request. Webhook credentials stay on the
           server.

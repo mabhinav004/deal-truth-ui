@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { CallReport, Transcript } from "@/api/contracts";
 import { slackIntegration, validateSlackWebhook } from "@/api/integrations";
 import { env } from "@/config/env";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { Drawer } from "@/components/ui/Drawer";
 import { Button } from "@/components/ui/Button";
 import { Alert } from "@/components/ui/Alert";
@@ -102,7 +103,7 @@ export function SlackSetupDrawer({
         setSaveMessage("Demo mode: Slack alerts are simulated. The webhook was not stored or sent anywhere.");
       } else {
         setSaveTone("info");
-        setSaveMessage("Webhook saved on the Deal Truth API. The URL is stored server-side and is never returned.");
+        setSaveMessage(`Webhook saved on the ${PRODUCT_NAME} API. The URL is stored server-side and is never returned.`);
       }
     } catch (error) {
       setWebhookError(error instanceof Error ? error.message : "Could not save webhook.");
@@ -176,7 +177,7 @@ export function SlackSetupDrawer({
       {step === 1 ? (
         <div className="space-y-4">
           <p className="text-sm text-ink-500">
-            Add a Slack incoming webhook. DealTruth never sends this value with HubSpot requests, and it is not stored in
+            Add a Slack incoming webhook. {PRODUCT_NAME} never sends this value with HubSpot requests, and it is not stored in
             the browser.
           </p>
           <Field label="Slack webhook URL" htmlFor="slack-webhook">
@@ -204,7 +205,7 @@ export function SlackSetupDrawer({
             </div>
           </Field>
           <p id="slack-webhook-help" className="text-xs text-ink-400">
-            Your webhook is used to deliver DealTruth alerts to Slack.
+            Your webhook is used to deliver {PRODUCT_NAME} alerts to Slack.
           </p>
           {webhookError ? (
             <Alert tone="danger" title="Check the webhook URL">

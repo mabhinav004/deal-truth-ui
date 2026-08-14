@@ -31,8 +31,7 @@ import { deriveDimensions } from "@/lib/evidence";
 import { PlayGlyph } from "@/components/brand/ChakraMark";
 import { StatusPill } from "@/components/ui/Badge";
 import { formatDate, formatDuration } from "@/lib/utils";
-import { CONNECTION_STATE, interpretIntegrationHealth } from "@/api/hubspot";
-import { useAppIntegrations, useIntegrationHealth } from "@/hooks/useIntegrations";
+import { ConnectedStatusChip } from "@/features/integrations/IntegrationConnectionCard";
 import { useCall, useCallAudioSrc, useCallReport, useReanalyze, useShare, useSwapSpeakers, useTranscript } from "@/hooks/useCallApi";
 import { CallSummarySection } from "@/features/summary/CallSummarySection";
 import { partialReportMessage } from "@/features/summary/partialReport";
@@ -425,11 +424,6 @@ function ActView({
   onCrm: () => void;
 }) {
   const proposed = proposeIntegrations(report);
-  const health = useIntegrationHealth();
-  const slackStatus = useAppIntegrations();
-  const connections = interpretIntegrationHealth(health.data);
-  const hubspotConnected = connections.hubspot === CONNECTION_STATE.CONNECTED;
-  const slackConnected = slackStatus.data?.configured === true || connections.slack === CONNECTION_STATE.CONNECTED;
   return (
     <div className="vstack" style={{ gap: 16 }}>
       <div className="card pad-lg reveal">
@@ -441,9 +435,7 @@ function ActView({
           <div style={{ border: "1px solid var(--proof-line)", background: "var(--proof-soft)", borderRadius: 12, padding: "12px 14px" }}>
             <div className="between" style={{ marginBottom: 5 }}>
               <span style={{ fontWeight: 800, fontSize: 13.5 }}>HubSpot</span>
-              <span className={`chip ${hubspotConnected ? "proof" : ""}`}>
-                {health.isLoading ? "Checking…" : hubspotConnected ? "Connected" : "Not configured"}
-              </span>
+              <ConnectedStatusChip />
             </div>
             <div className="sub" style={{ fontSize: 12.5, marginBottom: 10 }}>
               {proposed.crmActions.filter((action) => action.state === "SUPPORTED").length} fields carry evidence ·{" "}
@@ -459,9 +451,7 @@ function ActView({
           <div style={{ border: "1px solid var(--proof-line)", background: "var(--proof-soft)", borderRadius: 12, padding: "12px 14px" }}>
             <div className="between" style={{ marginBottom: 5 }}>
               <span style={{ fontWeight: 800, fontSize: 13.5 }}>Slack</span>
-              <span className={`chip ${slackConnected ? "proof" : ""}`}>
-                {slackStatus.isLoading ? "Checking…" : slackConnected ? "Connected" : "Not configured"}
-              </span>
+              <ConnectedStatusChip />
             </div>
             <div className="sub" style={{ fontSize: 12.5, marginBottom: 10 }}>
               {proposed.slack.value}. Alerts fire from the integration service when a deal risk, refused claim, or lost

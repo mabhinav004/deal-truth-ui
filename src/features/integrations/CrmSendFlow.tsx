@@ -3,6 +3,7 @@ import type { CallReport, Transcript } from "@/api/contracts";
 import type { HubSpotOperation, HubSpotResponse, MockIntegrationScenario } from "@/api/integrations/contracts";
 import { summarizeHubSpotResponse } from "@/api/integrations";
 import { env } from "@/config/env";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { Drawer } from "@/components/ui/Drawer";
 import { Button } from "@/components/ui/Button";
 import { Alert } from "@/components/ui/Alert";
@@ -398,7 +399,7 @@ export function CrmSendFlow({
                 <span className="mt-0.5 block text-xs text-ink-500">
                   {slackUi.demoConfigured
                     ? "Demo mode will simulate delivery. The webhook stays on the mock server."
-                    : "Uses the server-side Slack webhook. DealTruth cannot confirm that webhook from this app, and never sends the URL."}
+                    : `Uses the server-side Slack webhook. ${PRODUCT_NAME} cannot confirm that webhook from this app, and never sends the URL.`}
                 </span>
               </span>
             </button>

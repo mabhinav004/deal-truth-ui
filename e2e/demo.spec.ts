@@ -17,7 +17,7 @@ test("screenshot demo route", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/demo");
   await expect(page.getByText(/The verdict/i).first()).toBeVisible();
-  await page.screenshot({ path: "artifacts/deal-truth-killer-screenshot.png", fullPage: false });
+  await page.screenshot({ path: "artifacts/sach-ai-killer-screenshot.png", fullPage: false });
 });
 
 test("send is locked until the unsupported claim is removed", async ({ page }) => {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Drawer } from "@/components/ui/Drawer";
 import { Button } from "@/components/ui/Button";
 import { ActionSelect } from "./ActionSelect";
+import { PRODUCT_NAME } from "@/lib/brand";
 import {
   type ActionKind,
   ACTION_LABELS,
@@ -56,7 +57,7 @@ export function HubSpotManageDrawer({ open, onClose }: { open: boolean; onClose:
       }
     >
       <p className="text-sm text-ink-500">
-        Choose what DealTruth should send to your CRM. These preferences apply the next time you send intelligence from
+        Choose what {PRODUCT_NAME} should send to your CRM. These preferences apply the next time you send intelligence from
         a call.
       </p>
       <div className="mt-5 space-y-2">

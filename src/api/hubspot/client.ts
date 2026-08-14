@@ -1,4 +1,5 @@
 import { env } from "@/config/env";
+import { REQUEST_ID_PREFIX } from "@/lib/brand";
 import { ApiError, wrapFetchFailure } from "../errors";
 import {
   FORBIDDEN_REQUEST_KEYS,
@@ -30,7 +31,7 @@ function newRequestId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
     return crypto.randomUUID();
   }
-  return `dealtruth-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  return `${REQUEST_ID_PREFIX}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
 function assertNoSecrets(value: unknown, path = "request"): void {

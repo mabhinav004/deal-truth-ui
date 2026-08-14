@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { EvidenceFocusProvider } from "@/components/evidence/EvidenceFocusContext";
 import { buildDemoReport } from "@/mocks/fixtures/demoReport";
 import { DEMO_CALL_ID, buildDemoTranscript } from "@/mocks/fixtures/demoTranscript";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { integrationApiUrl } from "@/api/hubspot/client";
 import { CrmSendDialog } from "./CrmSendDialog";
 
@@ -63,7 +64,7 @@ describe("CrmSendDialog", () => {
     expect(body.requestId).toBeTruthy();
     expect(body.operations.every((operation) => operation.operationId && operation.data && typeof operation.data === "object")).toBe(true);
     expect(body.operations[0]?.type).toBe("CREATE_NOTE");
-    expect(String(body.operations[0]?.data.body)).toMatch(/DealTruth summary/i);
+    expect(String(body.operations[0]?.data.body)).toMatch(new RegExp(`${PRODUCT_NAME.replaceAll(".", "\\.")} summary`, "i"));
     expect(body.operations.map((operation) => operation.type)).toEqual([
       "CREATE_NOTE",
       "CREATE_TASK",

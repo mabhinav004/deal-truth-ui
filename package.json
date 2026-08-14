@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Deal Truth — evidence-backed call intelligence. No proof in the transcript, no claim in the report.",
+  "description": "Sach.AI — evidence-backed call intelligence. No proof in the transcript, no claim in the report.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -20,7 +20,7 @@
     "docker:down": "docker compose down --remove-orphans",
     "design": "open design/prototype.html || xdg-open design/prototype.html",
     "parity": "playwright test e2e/parity.spec.ts",
-    "check:brand": "! grep -ril 'open.\\?gong' src index.html README.md e2e package.json LICENSE",
+    "check:brand": "! grep -ril 'open.\\?gong' src index.html README.md e2e package.json LICENSE && ! grep -rilE 'Deal Truth|DealTruth|DEAL TRUTH' src index.html README.md e2e LICENSE",
     "check": "npm run typecheck && npm run lint && npm test && npm run check:brand && npm run parity"
   },
   "dependencies": {

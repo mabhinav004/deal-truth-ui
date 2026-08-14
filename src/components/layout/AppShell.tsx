@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { applyTheme, readStoredTheme, toggleTheme } from "@/lib/theme";
+import { BrandWordmark } from "@/components/brand/BrandWordmark";
 import { ChakraMark } from "@/components/brand/ChakraMark";
 import { DemoLayer } from "@/features/demo/DemoLayer";
 import { env } from "@/config/env";
@@ -59,9 +60,7 @@ export function TopNav() {
           <span className="brandmark">
             <ChakraMark />
           </span>
-          <span className="brandname">
-            Deal<em> </em>Truth
-          </span>
+          <BrandWordmark />
         </Link>
         <nav className="navlinks">
           <NavLink to="/" end className={({ isActive }) => (isActive ? "navlink on" : "navlink")}>

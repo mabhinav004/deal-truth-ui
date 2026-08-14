@@ -3,6 +3,7 @@ import { hubspotSyncRequestSchema } from "@/api/hubspot/types";
 import { FORBIDDEN_REQUEST_KEYS, HUBSPOT_OPERATION_TYPE, HUBSPOT_TASK_TYPE } from "@/api/hubspot/constants";
 import { buildDemoReport } from "@/mocks/fixtures/demoReport";
 import { buildDemoTranscript } from "@/mocks/fixtures/demoTranscript";
+import { PRODUCT_NAME } from "@/lib/brand";
 import {
   buildDealOperation,
   dateInputToDateTime,
@@ -80,7 +81,7 @@ describe("proposeIntegrations", () => {
       .filter((action) => action.defaultSelected && action.operation)
       .map((action) => action.operation!);
     const parsed = hubspotSyncRequestSchema.parse({
-      requestId: "dealtruth_demo_test",
+      requestId: "sach_ai_demo_test",
       operations,
       slack: proposed.slack.slack,
     });
@@ -89,7 +90,7 @@ describe("proposeIntegrations", () => {
     expect(parsed.slack?.title).toMatch(/economic buyer|next meeting/i);
     expect(parsed.slack?.evidence?.length).toBeGreaterThan(0);
     expect(parsed.slack?.changes?.length).toBeGreaterThan(0);
-    expect(parsed.operations[0]).toMatchObject({ type: "CREATE_NOTE", data: { body: expect.stringMatching(/DealTruth summary/i) } });
+    expect(parsed.operations[0]).toMatchObject({ type: "CREATE_NOTE", data: { body: expect.stringMatching(new RegExp(`${PRODUCT_NAME.replaceAll(".", "\\.")} summary`, "i")) } });
     const keys = collectKeys(parsed).map((key) => key.toLowerCase());
     for (const forbidden of FORBIDDEN_REQUEST_KEYS) {
       expect(keys).not.toContain(forbidden.toLowerCase());

@@ -1,4 +1,5 @@
 import type { CallReport, Commitment, DealRisk, Transcript } from "@/api/contracts";
+import { PRODUCT_NAME } from "@/lib/brand";
 import { resolveSegment } from "@/lib/evidence";
 import { formatClock } from "@/lib/utils";
 import {
@@ -143,7 +144,7 @@ function bulletList(label: string, items: string[]): string[] {
 
 function buildCallNote(report: CallReport): string {
   return [
-    `DealTruth summary: ${report.summary.headline}`,
+    `${PRODUCT_NAME} summary: ${report.summary.headline}`,
     "",
     report.summary.tldr,
     ...bulletList("Decisions", report.summary.decisions),

@@ -12,6 +12,7 @@ import type {
   SlackRisk,
 } from "@/api/integrations/contracts";
 import { newIntegrationId } from "@/api/integrations/ids";
+import { INTEGRATION_PREFS_KEY } from "@/lib/brand";
 import { formatClock, speakerName } from "@/lib/utils";
 
 export type ActionKind = "deal" | "note" | "task" | "call" | "meeting";
@@ -27,8 +28,6 @@ export type IntegrationDraft = {
   omissions: string[];
 };
 
-const PREFS_KEY = "opengong.integrations.prefs";
-
 type StoredPrefs = {
   selected?: Partial<Record<ActionKind, boolean>>;
   slackEnabled?: boolean;
@@ -38,7 +37,7 @@ type StoredPrefs = {
 
 export function loadIntegrationPrefs(): StoredPrefs {
   try {
-    const raw = localStorage.getItem(PREFS_KEY);
+    const raw = localStorage.getItem(INTEGRATION_PREFS_KEY);
     return raw ? (JSON.parse(raw) as StoredPrefs) : {};
   } catch {
     return {};
@@ -47,7 +46,7 @@ export function loadIntegrationPrefs(): StoredPrefs {
 
 export function saveIntegrationPrefs(prefs: StoredPrefs): void {
   try {
-    localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+    localStorage.setItem(INTEGRATION_PREFS_KEY, JSON.stringify(prefs));
   } catch {
     // Ignore quota / private-mode failures.
   }

@@ -14,7 +14,7 @@ Effort estimates assume one person with Cursor/Claude Code.
 
 ## P0 — Ship-blockers (≈4h)
 
-### 0.1 Rename OpenGong → Deal Truth (20 min)
+### 0.1 Rename OpenGong → Sach.AI (20 min)
 
 Every remaining occurrence, with line numbers:
 
@@ -26,7 +26,7 @@ Every remaining occurrence, with line numbers:
 | `index.html` | 9 | meta description `OpenGong Lite — …` |
 | `index.html` | 17 | `<title>OpenGong — Conversation intelligence</title>` |
 | `package.json` | 2 | `"name": "open-gong-web"` |
-| `package.json` | 6 | description `OpenGong Lite / DealTruth — …` |
+| `package.json` | 6 | description `OpenGong Lite / Sach.AI — …` |
 | `LICENSE` | 3 | `Copyright (c) 2026 OpenGong contributors` |
 | `e2e/screenshot.spec.ts` | 8 | `artifacts/open-gong-killer-screenshot.png` |
 | `e2e/demo.spec.ts` | 21 | same path |
